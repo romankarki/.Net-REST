@@ -26,7 +26,8 @@ namespace Rest_Example.Controllers
         public ActionResult<IEnumerable<Task>> GetTasks()
         {
             var taskItems = _repository.GetAllTasks();
-            return Ok(_mapper.Map<IEnumerable<Task>>(taskItems));
+            // return Ok(_mapper.Map<IEnumerable<Task>>(taskItems));
+            return Ok(taskItems);
         }
     }
 
