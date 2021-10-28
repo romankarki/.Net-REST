@@ -46,7 +46,6 @@ namespace Rest_Example.Repository
             if (task == null)
             {
                 throw new ArgumentException(nameof(task));
-
             }
             _context.Tasks.Remove(task);
         }
