@@ -67,6 +67,4 @@ namespace Rest_Example.Controllers
             return NoContent();
         }
     }
-
-
 }
