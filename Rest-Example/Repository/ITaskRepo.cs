@@ -7,5 +7,9 @@ namespace Rest_Example.Repository
     {
         IEnumerable<Task> GetAllTasks();
         Task GetTaskById(int id);
+
+        void CreateTask(Task task);
+        void UpdateTask(Task task);
+        bool SaveChanges();
     }
 }

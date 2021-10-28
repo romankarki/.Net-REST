@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Rest_Example.Model;
@@ -20,6 +21,29 @@ namespace Rest_Example.Repository
         public Task GetTaskById(int id)
         {
             return _context.Tasks.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void CreateTask(Task task)
+        {
+            if (task == null)
+            {
+                throw new ArgumentNullException(nameof(task));
+            }
+            _context.Tasks.Add(task);
+        }
+
+        public void UpdateTask(Task task)
+        {
+            if (task == null)
+            {
+                throw new ArgumentNullException(nameof(task));
+            }
+            _context.Tasks.Update(task);
+        }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }
