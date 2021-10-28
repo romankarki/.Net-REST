@@ -10,6 +10,7 @@ namespace Rest_Example.Repository
 
         void CreateTask(Task task);
         void UpdateTask(Task task);
+        void DeleteTask(Task task);
         bool SaveChanges();
     }
 }

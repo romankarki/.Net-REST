@@ -41,6 +41,16 @@ namespace Rest_Example.Repository
             _context.Tasks.Update(task);
         }
 
+        public void DeleteTask(Task task)
+        {
+            if (task == null)
+            {
+                throw new ArgumentException(nameof(task));
+
+            }
+            _context.Tasks.Remove(task);
+        }
+
         public bool SaveChanges()
         {
             return (_context.SaveChanges() >= 0);

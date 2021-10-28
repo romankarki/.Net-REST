@@ -2,11 +2,7 @@ using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Rest_Example.Repository;
-using Microsoft.AspNetCore.JsonPatch;
-using System.Linq;
-using Rest_Example.DTO;
 using Rest_Example.Model;
-using System;
 
 namespace Rest_Example.Controllers
 {
@@ -55,6 +51,19 @@ namespace Rest_Example.Controllers
             _repository.UpdateTask(task);
             _repository.SaveChanges();
 
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<Task> DeleteTask(int id)
+        {
+            var taskFromDB = _repository.GetTaskById(id);
+            if (taskFromDB == null)
+            {
+                return NotFound();
+            }
+            _repository.DeleteTask(taskFromDB);
+            _repository.SaveChanges();
             return NoContent();
         }
     }
